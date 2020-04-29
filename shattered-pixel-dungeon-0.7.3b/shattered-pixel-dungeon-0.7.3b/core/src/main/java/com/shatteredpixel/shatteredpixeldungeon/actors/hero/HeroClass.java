@@ -140,19 +140,6 @@ public enum HeroClass {
 		ThrowingStone stones = new ThrowingStone();
 		stones.quantity(3).collect();
 
-		MagicalInfusion m = new MagicalInfusion();
-		m.quantity(10).collect();
-		CurseInfusion c= new CurseInfusion();
-		c.quantity(20).collect();
-		Scroll sou = new ScrollOfUpgrade();
-		sou.quantity(20).collect();
-		Scroll sorc = new ScrollOfRemoveCurse();
-		sorc.quantity(20).collect();
-		Scroll soe = new ScrollOfEnchantment();
-		soe.quantity(20).collect();
-		Purify cl = new Purify();
-		cl.quantity(10).collect();
-
 		Dungeon.quickslot.setSlot(0, stones);
 
 		if (hero.belongings.armor != null){
