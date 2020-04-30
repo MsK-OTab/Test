@@ -189,14 +189,7 @@ public class ScrollOfTransmutation extends InventoryScroll {
 			n = (Amulet)Generator.random( Generator.Category.AMULET ) ;
 		} while (Challenges.isItemBlocked(n) || n.getClass() == a.getClass());
 
-		n.level(0);
-
-		int level = a.level();
-		if (level > 0) {
-			n.upgrade( level );
-		} else if (level < 0) {
-			n.degrade( -level );
-		}
+		n.random();
 
 		n.levelKnown = a.levelKnown;
 		n.cursedKnown = a.cursedKnown;

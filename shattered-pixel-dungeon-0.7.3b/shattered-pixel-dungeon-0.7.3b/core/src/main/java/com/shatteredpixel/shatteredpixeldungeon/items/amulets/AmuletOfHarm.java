@@ -31,7 +31,7 @@ public class AmuletOfHarm extends Amulet {
 		if (isIdentified()){
 			return Messages.get(this, "stats", 20f*soloBonus() + 10f, 10f*soloBonus()+10f);
 		} else {
-			return Messages.get(this, "stats", 20f*1 + 10f, 10f*1 +10f );
+			return Messages.get(this, "typical_stats", 20f*1 + 10f, 10f*1 +10f );
 		}
 	}
 

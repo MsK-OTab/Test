@@ -38,9 +38,9 @@ public class Purify extends InventorySpell {
         Weakness.detach( curUser, Weakness.class );
 
         if (procced) {
-            GLog.p( Messages.get(this, "repaired") );
+            GLog.p( Messages.get(this, "repaired", item.name()) );
         } else {
-            GLog.i( Messages.get(this, "not_repaired") );
+            GLog.i( Messages.get(this, "not_repaired", item.name()) );
         }
     }
 
@@ -89,18 +89,22 @@ public class Purify extends InventorySpell {
             return procced;
     }
 
-
+    @Override
+    public int price() {
+        //prices of ingredients, divided by output quantity
+        return Math.round(quantity * ((50 + 40) / 1f));
+    }
 
     public static class Recipe extends com.shatteredpixel.shatteredpixeldungeon.items.Recipe.SimpleRecipe {
 
         {
             inputs =  new Class[]{ScrollOfRemoveCurse.class, StoneOfEnchantment.class};
-            inQuantity = new int[]{1, 1};
+            inQuantity = new int[]{2, 1};
 
             cost = 6;
 
             output = Purify.class;
-            outQuantity = 2;
+            outQuantity = 3;
         }
 
     }

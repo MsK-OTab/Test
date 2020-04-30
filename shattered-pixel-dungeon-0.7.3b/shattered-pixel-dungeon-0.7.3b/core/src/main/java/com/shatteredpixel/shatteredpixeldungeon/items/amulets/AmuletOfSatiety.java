@@ -13,7 +13,7 @@ public class AmuletOfSatiety extends Amulet {
         if (isIdentified()){
             return Messages.get(this, "stats",soloBonus());
         } else {
-            return Messages.get(this, "stats",1 );
+            return Messages.get(this, "typical_stats",1 );
         }
     }
 

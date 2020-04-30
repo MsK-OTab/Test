@@ -434,7 +434,7 @@ public class Generator {
 					AmuletOfSatiety.class,
 					AmuletOfWealth.class
 			};
-			AMULET.probs = new float[]{ 1, 1, 1, 1, 1, 1, 1 };
+			AMULET.probs = new float[]{ 1, 1, 1, 1, 1, 1 };
 			
 			RING.classes = new Class<?>[]{
 					RingOfAccuracy.class,
@@ -507,8 +507,8 @@ public class Generator {
 				return randomWeapon();
 			case MISSILE:
 				return randomMissile();
-			case AMULET:
-				return randomAmulet();
+//			case AMULET:
+//				return randomAmulet();
 //			case ARTIFACT:
 //				Item item = randomArtifact();
 //				//if we're out of artifacts, return a ring instead.
@@ -616,6 +616,7 @@ public class Generator {
 			Category cat = Category.AMULET;
 
 			Amulet amu = (Amulet) cat.classes[Random.chances(cat.probs)].newInstance();
+			amu.random();
 			amu.random();
 			return amu;
 		} catch (Exception e) {

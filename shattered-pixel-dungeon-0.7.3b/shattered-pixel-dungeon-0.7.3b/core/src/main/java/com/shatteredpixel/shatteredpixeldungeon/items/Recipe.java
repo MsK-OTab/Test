@@ -204,8 +204,7 @@ public abstract class Recipe {
 		new ReclaimTrap.Recipe(),
 		new Recycle.Recipe(),
 		new WildEnergy.Recipe(),
-		new StewedMeat.twoMeat(),
-		new Purify.Recipe()
+		new StewedMeat.twoMeat()
 	};
 	
 	private static Recipe[] threeIngredientRecipes = new Recipe[]{
@@ -213,7 +212,8 @@ public abstract class Recipe {
 		new ExoticPotion.PotionToExotic(),
 		new ExoticScroll.ScrollToExotic(),
 		new StewedMeat.threeMeat(),
-		new MeatPie.Recipe()
+		new MeatPie.Recipe(),
+		new Purify.Recipe()
 	};
 	
 	public static Recipe findRecipe(ArrayList<Item> ingredients){

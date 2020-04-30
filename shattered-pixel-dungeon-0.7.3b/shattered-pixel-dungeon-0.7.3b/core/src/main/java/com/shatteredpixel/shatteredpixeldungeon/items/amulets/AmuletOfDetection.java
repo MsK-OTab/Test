@@ -9,9 +9,9 @@ public class AmuletOfDetection extends Amulet {
 
     public String statsInfo() {
         if (isIdentified()){
-            return Messages.get(this, "stats", 5*soloBonus(), soloBonus()<0 ? 0 : (int)soloBonus()/2 );
+            return Messages.get(this, "stats", 5f*soloBonus(), Math.max( 0, (soloBonus()/2 )));
         } else {
-            return Messages.get(this, "stats", 5*1 );
+            return Messages.get(this, "typical_stats", 5f*1, Math.max( 0, (1/2 )) );
         }
     }
 

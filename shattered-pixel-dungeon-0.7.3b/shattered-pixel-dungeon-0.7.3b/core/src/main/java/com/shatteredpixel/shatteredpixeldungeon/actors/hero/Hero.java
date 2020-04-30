@@ -424,8 +424,14 @@ public class Hero extends Char {
 		if (enemy instanceof Mob && ((Mob) enemy).surprisedBy(this)) {
 			dmg *= RingOfStealth.stabbingDmgMultiplier(this);
 		}
-		
-		return buff( Fury.class ) != null ? (int)(dmg * 1.5f) : dmg;
+		if( this.buff( AmuletOfHarm.Harm.class ) != null ) {
+			dmg = (int)Math.ceil(dmg * AmuletOfHarm.damageGiveMultiplier(this));
+		}
+
+		dmg = buff( Fury.class ) != null ? (int)(dmg * 1.5f) : dmg;
+
+
+		return dmg;
 	}
 	
 	@Override
@@ -994,7 +1000,7 @@ public class Hero extends Char {
 			break;
 		default:
 		}
-		damage = (int)Math.ceil(damage * AmuletOfHarm.damageGiveMultiplier(this));
+
 
 		return damage;
 	}
@@ -1015,8 +1021,6 @@ public class Hero extends Char {
 		if (armor != null) {
 			damage = armor.absorb( damage );
 		}
-
-		damage = (int)Math.ceil(damage * AmuletOfHarm.damageTakeMultiplier(this));
 		
 		return damage;
 	}
@@ -1047,6 +1051,10 @@ public class Hero extends Char {
 		if (belongings.armor != null && belongings.armor.hasGlyph(AntiMagic.class, this)
 				&& AntiMagic.RESISTS.contains(src.getClass())){
 			dmg -= AntiMagic.drRoll(belongings.armor.level());
+		}
+
+		if ( this.buff(AmuletOfHarm.Harm.class) != null ) {
+			dmg = (int)Math.ceil(dmg * AmuletOfHarm.damageTakeMultiplier(this));
 		}
 
 		super.damage( dmg, src );
